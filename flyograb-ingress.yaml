@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: flyograb-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /flyograb
+        pathType: Prefix
+        backend:
+          service:
+            name: flyograb-service
+            port:
+              number: 80
