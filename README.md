@@ -1,0 +1,1 @@
+# Friendztravel-k8s
