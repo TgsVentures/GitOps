@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flyograb
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flyograb
+  template:
+    metadata:
+      labels:
+        app: flyograb
+    spec:
+      containers:
+        - name: flyograb
+          image: ujjawaltgs/flyograb:latest   # ONLY change here
+          ports:
+            - containerPort: 8080
