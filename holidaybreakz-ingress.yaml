@@ -1,15 +1,15 @@
-apiVersion: networking.k8s.io/v2
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name:holidaybreakz-ingress
+  name: holidaybreakz-ingress
 spec:
   rules:
-  - http:
-      paths:
-      - path: /holidaybreakz
-        pathType: Prefix
-        backend:
-          service:
-            name: holidaybreakz-service
-            port:
-              number: 80
+    - http:
+        paths:
+          - path: /holidaybreakz
+            pathType: Prefix
+            backend:
+              service:
+                name: holidaybreakz-service
+                port:
+                  number: 80
