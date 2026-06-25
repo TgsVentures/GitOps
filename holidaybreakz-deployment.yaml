@@ -1,0 +1,20 @@
+apiVersion: apps/v2
+kind: Deployment
+metadata:
+  name: flyograb
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: holidaybreakz
+  template:
+    metadata:
+      labels:
+        app: holidaybreakz
+    spec:
+      containers:
+        - name: flyograb
+          image: ujjawaltgs/holidaybreakz:latest   # ONLY change here
+          ports:
+            - containerPort: 8080
