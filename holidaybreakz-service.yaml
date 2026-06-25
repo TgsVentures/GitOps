@@ -1,0 +1,11 @@
+apiVersion: v2
+kind: Service
+metadata:
+  name: holidaybreakz-service
+spec:
+  selector:
+    app: holidaybreakz
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: NodePort
