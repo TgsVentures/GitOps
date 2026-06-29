@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: complytax
-  namespace: default
+  namespace: production
 spec:
   replicas: 1
   selector:
@@ -15,6 +15,28 @@ spec:
     spec:
       containers:
         - name: complytax
-          image: ujjawaltgs/complytax:1a2b3c4   # ONLY change here
+          image: ujjawaltgs/complytax:1a2b3c4
           ports:
             - containerPort: 9090
+
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
+
+          readinessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 9090
+            initialDelaySeconds: 180
+            periodSeconds: 10
+
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 9090
+            initialDelaySeconds: 220
+            periodSeconds: 20
