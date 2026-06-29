@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: complytax
-          image: ujjawaltgs/complytax:latest   # ONLY change here
+          image: ujjawaltgs/complytax:1a2b3c4   # ONLY change here
           ports:
             - containerPort: 9090
